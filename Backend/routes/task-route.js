@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require('../middleware/Auth');
 const {getAlltasks,addtasks,updatetask,deletetask,getById,getByuserId} = require("../controller/task-controller.js");
 
 

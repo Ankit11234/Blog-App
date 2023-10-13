@@ -1,5 +1,6 @@
 const User = require("../model/User");
 const bcrypt = require("bcrypt");
+const jwt=require('jsonwebtoken')
 
 
 const getAllUsers =async(req,res,next)=>{
@@ -40,6 +41,16 @@ const signup = async(req,res,next)=>{
         password:hashed,
         tasks:[],
     })
+    // const token = jwt.sign(
+    //   { user_id: user._id, email },
+    //   "JWT_TOKEN",
+    //   {
+    //     expiresIn: "2h",
+    //   }
+    // );
+    // save user token
+    
+    // user.token = token;
     try {
         user.save();
         
@@ -68,6 +79,16 @@ const login = async (req,res,next)=>{
     
     try {
       isCorrect = await bcrypt.compare(password,existinguser.password);
+      const token = jwt.sign(
+        { user_id: existinguser._id, email },
+        "JWT_TOKEN",
+        {
+          expiresIn: "2h",
+        }
+      );
+      console.log("token in login route  is",token)
+      // save user token
+      existinguser.token = token;
       
     } catch (error) {
       return console.log(error);
