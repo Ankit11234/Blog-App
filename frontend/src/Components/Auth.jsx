@@ -55,7 +55,7 @@ const Auth = () => {
     }else{
       sendRequest()
       .then((data)=>localStorage.setItem("userId",data.message._id))
-      .then(()=>dispatch(authActions.login())).then(()=>navigate("/blogs"));
+      .then(()=>dispatch(authActions.login())).then(()=>navigate("/tasks"));
       // .then((data)=>console.log("data is",data))
     }
    

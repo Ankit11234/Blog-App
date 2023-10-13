@@ -18,9 +18,9 @@ const userSchema = new Schema({
         unique:true,
         minLength:6
     },
-    blogs:[
+    tasks:[
         {type: mongoose.Types.ObjectId,
-        ref:"Blog",
+        ref:"Task",
         required:true,
         }
     ],

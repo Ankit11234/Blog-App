@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import AddBlog from './Components/AddBlog';
+import Addtask from './Components/AddTask';
 import Auth from './Components/Auth';
-import BlogDetail from './Components/BlogDetail';
-import Blogs from './Components/Blogs';
+import taskDetail from './Components/TaskDetail';
+import tasks from './Components/Tasks';
 import Header from './Components/Header';
-import UserBlogs from './Components/UserBlogs';
+import Usertasks from './Components/UserTasks';
 import { authActions } from './Store';
+import Tasks from './Components/Tasks';
+import TaskDetail from './Components/TaskDetail';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,10 +30,10 @@ function App() {
       <Routes>
       {!state ?<Route path='/auth' element={<Auth/>}/>:
         <>
-          <Route path='/blogs' element={<Blogs/>}/>
-          <Route path='/myBlogs' element={<UserBlogs/>}/>
-          <Route path='/myBlogs/:id' element={<BlogDetail/>}/>
-          <Route path='/blogs/add' element={<AddBlog/>}/> 
+          <Route path='/tasks' element={<Tasks/>}/>
+          <Route path='/mytasks' element={<Usertasks/>}/>
+          <Route path='/mytasks/:id' element={<TaskDetail/>}/>
+          <Route path='/tasks/add' element={<Addtask/>}/> 
         </>
       }
      

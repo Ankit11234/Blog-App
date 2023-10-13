@@ -38,7 +38,7 @@ const signup = async(req,res,next)=>{
         name,
         email,
         password:hashed,
-        blogs:[],
+        tasks:[],
     })
     try {
         user.save();
